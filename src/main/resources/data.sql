@@ -1,6 +1,9 @@
 insert into student(id, name) values(10, 'Adi');
 insert into student(id, name) values(20, 'Ksh');
 
+insert into teacher(id, name) values(10, 'Sharma');
+insert into teacher(id, name) values(20, 'Varma');
+
 insert into course(id, name) values(10, 'Java');
 insert into course(id, name) values(20, 'Python');
 

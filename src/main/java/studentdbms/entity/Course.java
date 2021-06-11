@@ -1,16 +1,10 @@
 package studentdbms.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
-
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.ManyToMany;
-import javax.persistence.OneToMany;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 public class Course 
@@ -29,6 +23,10 @@ public class Course
 	@ManyToMany(mappedBy = "courses")
 	@JsonIgnore
 	private List<Student> students = new ArrayList<>();
+
+	@ManyToMany(mappedBy = "courses")
+	@JsonIgnore
+	private List<Teacher> teachers = new ArrayList<>();
 	
 	public Course() {}
 
@@ -67,9 +65,17 @@ public class Course
 	public void addStudent(Student student) {
 		this.students.add(student);
 	}
+
+	public void addTeacher(Teacher teacher) {
+		this.teachers.add(teacher);
+	}
 	
 	public void removeStudent(Student student) {
 		this.students.remove(student);
+	}
+
+	public void removeTeacher(Teacher teacher) {
+		this.teachers.remove(teacher);
 	}
 
 	@Override

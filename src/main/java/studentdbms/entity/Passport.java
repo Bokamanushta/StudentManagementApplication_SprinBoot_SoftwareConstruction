@@ -18,6 +18,9 @@ public class Passport
 	
 	@OneToOne(mappedBy = "passport")
 	private Student student;
+
+	@OneToOne(mappedBy = "passport")
+	private Teacher teacher;
 	
 	public Passport() {}
 
@@ -43,6 +46,14 @@ public class Passport
 
 	public void setStudent(Student student) {
 		this.student = student;
+	}
+
+	public Teacher getTeacher() {
+		return teacher;
+	}
+
+	public void setTeacher(Teacher teacher) {
+		this.teacher = teacher;
 	}
 
 	@Override
